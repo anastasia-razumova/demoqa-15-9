@@ -5,6 +5,7 @@ import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
@@ -18,6 +19,7 @@ import static io.qameta.allure.Allure.step;
 public class StudentRegFormInitial extends TestBase{
 
     @Test
+    @Tag("with_properties")
     void simpleTest() {
         step("Open registration form",() -> {
             open("/automation-practice-form");

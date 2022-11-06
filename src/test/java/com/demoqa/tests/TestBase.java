@@ -22,8 +22,21 @@ public class TestBase {
 
         Configuration.browserCapabilities = capabilities;
         Configuration.baseUrl = "https://demoqa.com";
-        Configuration.browserSize = "1920x1080";
-        Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
+
+        String browserName = System.getProperty("browser", "chrome");
+        String browserVersion = System.getProperty("browserVersion", "100");
+        String browserSize = System.getProperty("browserSize",  "1600x800");
+        String remoteUrl = System.getProperty("remote", "https://user1:1234@selenoid.autotests.cloud/wd/hub");
+
+        Configuration.browser= browserName;
+        Configuration.browserVersion= browserVersion;
+        Configuration.browserSize = browserSize;
+        Configuration.holdBrowserOpen = true;
+        //     Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub";
+
+        if(remoteUrl!= null ){
+            Configuration.remote = remoteUrl;
+        }
     }
 
     @AfterEach
