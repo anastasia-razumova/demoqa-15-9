@@ -12,14 +12,8 @@ import static com.codeborne.selenide.Selenide.open;
 
 public class SelenideTest {
 
-    @BeforeAll
-    static void setUp(){
-        Configuration.holdBrowserOpen = true;
-
-    }
-
     @Test
-    public void checkPageLabel(){
+    public void checkPage(){
         open("https://github.com/");
         $(byText("Solutions")).hover();
         $(byText("Enterprise")).click();
